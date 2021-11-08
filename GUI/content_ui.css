@@ -1,0 +1,127 @@
+body {
+  background-color: #3d3d3d;
+}
+
+
+@media (max-width: 320px) {
+  .yt-vd {
+    width: 100%;
+    height: 250px;
+  }
+  .wlcm-txt {
+    font-size: 15px;
+  }
+}
+@media (max-width: 375px) {
+  .yt-vd {
+    width: 100%;
+    height: 250px;
+  }
+  .wlcm-txt {
+    font-size: 15px;
+  }
+}
+@media (max-width: 768px) {
+  .yt-vd {
+    width: 100%;
+    height: 250px;
+  }
+  .wlcm-txt {
+    font-size: 15px;
+  }
+}
+@media (max-width: 280px) {
+  .yt-vd {
+    width: 100%;
+    height: 250px;
+  }
+  .wlcm-txt {
+    font-size: 15px;
+  }
+}
+@media (max-width: 540px) {
+  .yt-vd {
+    width: 100%;
+    height: 250px;
+  }
+  .wlcm-txt {
+    font-size: 15px;
+  }
+}
+@media (min-width: 600px) {
+  .wlcm-txt {
+    font-size: 19px;
+  }
+}
+
+/* contant maps */
+.map-bd:hover {
+  background-color: transparent;
+  border: 8px solid #019fb6;
+  border-radius: 6px;
+  transition: border 200ms ease-out;
+}
+
+/* live chat */
+.cht-border {
+  /* border: 5px solid #019fb6; */
+  border-radius: 2px solid #fff;
+  height: 500px;
+  /* background-clip: padding-box;
+  animation-name: breathing-bd;
+  animation-duration: 2.7s;
+  animation-timing-function: linear;
+  animation-delay: 0;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-direction: normal;
+  animation-play-state: running; */
+}
+
+@keyframes breathing-bd {
+  0% {
+    border: 0px solid transparent;
+  }
+  50% {
+    border: 5px solid #019fb6;
+  }
+  100% {
+    border: 0px solid transparent;
+  }
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: white;
+}
+
+.box {
+  background-color: #47c26c;
+  padding: 15;
+  border-radius: 8px;
+}
+
+.btn {
+  border: 2px solid rgb(102, 0, 170);
+  color: rgb(102, 0, 170);
+}
+.btn:hover {
+  background-color: rgb(102, 0, 170);
+  color: white;
+  box-shadow: 0px 1px 5px rgb(102, 0, 170);
+  border: 2px solid rgb(102, 0, 170);
+}
+
+.profile {
+  cursor: default;
+}
+
+.sbm {
+  border: 1px solid #47c26c;
+  color: #47c26c;
+  width: 100%;
+}
+.sbm:hover {
+  background-color: #47c26c;
+  border: 1px solid #81e9a0;
+  box-shadow: 0px 1px 5px #47c26c;
+}

@@ -1,0 +1,20 @@
+refrence mengikuti puskes senen dan keterangan juga 
+di bawah ini adalah beberapa hal yang perlu di remove(x) dan di tambahkan(+)
+untuk lantai 2 cukup yang di tuliskan dibawah ini sisanya diremove.
+
+LANTAI 1 
+-LANSIA (X)
+-ISPA (X)
+-BERSALIN(X)
+-MTBM (X)
+- (v)Unit Pelayanan TB = LAB (Lab Pelayanan pemeriksaan darah dan dahak pada penderita TB)
+- Unit Pelayanan Farmasi (Ruang Obat)
+- Harm Reduction (x)
+(+)Unit Pelayanan Gigi
+(+)Unit Pelayanan Gizi
+(+)Unit Pelayanan Laboratorium
+Lantai 2
+- Ruang Pimpinan
+- Aula Puskesmas Securai
+- Unit Pelayanan Tata usaha
+- Ruang UKM
