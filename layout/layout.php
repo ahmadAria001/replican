@@ -27,6 +27,7 @@
         <?php if (isset($TPL->title)) {
             echo $TPL->title;
         } ?>
+        | Puskesmas Securai
     </title>
     <?php
     // if (isset($TPL->headcontent)) {

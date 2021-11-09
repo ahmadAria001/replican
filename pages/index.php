@@ -16,7 +16,7 @@ if (!isset($TPL)) {
 }
 try {
     include('../db/connect.php');
-    $qry = "SELECT * FROM article";
+    $qry = "SELECT * FROM article WHERE article_type = '1' ORDER BY create_at DESC";
     $ftc = $connect->query($qry);
     $rst = $ftc->fetch_all(MYSQLI_ASSOC);
 } catch (Exception $e) {

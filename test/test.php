@@ -1,34 +1,39 @@
 <?php
 include('../db/connect.php');
-try {
-    $qry = "SELECT `article`.`create_at`,`article`.`des`,`article`.`id`,`article`.`id_creator`,`article`.`id_destroyer`,
-    `article`.`id_editor`,`article`.`is_deleted`,DATE_FORMAT(`article`.`time_start`,'%Y-%m-%dT%H:%i') AS tm_s,`article`.`title`,`article`.`tumbnail_pict`,
-    `article`.`update_at`,DATE_FORMAT(`article`.`time_end`,'%Y-%m-%dT%H:%i') AS tm_e FROM `article`";
-    $ftc = $connect->query($qry);
-    $result = $ftc->fetch_all(MYSQLI_ASSOC);
-} catch (Exception $e) {
-    echo "Error at: " . $e;
-}
+?>
 
-$fl = addslashes("https://www.youtube.com/embed/53JaOJhFsiI");
-$u = "";
-$y = addslashes("Vaksinasi tahap pertama");
-$z = addslashes("Vaksinasi");
-$x = "2021-08-10 08:00:00";
-$e = "2021-08-10 17:00:00";
-$b = "USR001";
-$n = "ARTC003";
+<?php
+$batas = 5;
+$halaman = isset($_GET['halaman']) ? (int)$_GET['halaman'] : 1;
+$halaman_awal = ($halaman > 1) ? ($halaman * $batas) - $batas : 0;
 
-$qry = "UPDATE article SET title = '$z',des = '$y', time_start = '$x',time_end = '$e',
-    id_editor = '$b',update_at = CURRENT_TIMESTAMP(),tumbnail_pict = '$fl' WHERE id = '$n'";
+$previous = $halaman - 1;
+$next = $halaman + 1;
 
-try {
-    include('../db/connect.php');
-    $connect->query($qry);
-    $_SESSION['art_up'] = "Update Succes";
-    header("Location: ../pages/article_input.php");
-} catch (Exception $e) {
-    echo "Error At: " . $e;
-    $_SESSION['art_up'] = "Update Failed: " + $e;
-    header("Location: ../pages/article_input.php");
-}
+$qry2 = "SELECT * FROM article WHERE article_type = 2";
+$data = $connect->query($qry);
+$jumlah_data = mysqli_num_rows($data);
+$total_halaman = ceil($jumlah_data / $batas);
+
+$data_pegawai = $connect->query("SELECT * FROM article WHERE article_type = 2 LIMIT $halaman_awal, $batas");
+$nomor = $halaman_awal + 1;
+?>
+<table class="table table-light">
+    <thead class="thead-light">
+        <tr>
+            <th>#</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($data_pegawai as $dp) : ?>
+            <tr>
+                <td><?= $dp['title']; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<?php
+for ($x = 1; $x <= $total_halaman; $x++) {
+?>
+    <li class="page-item"><a class="page-link" href="?halaman=<?php echo $x ?>"><?php echo $x; ?></a></li>
+<?php } ?>

@@ -24,14 +24,9 @@ if ($url == "http://localhost:8000/pages/ask_pg.php") {
             ins($nama, $nik, $bpjs, $hp, $email, $question);
         } catch (Exception $e) {
             echo "Error At: " . $e;
+            header("Location: ask_pg.php");
         }
     }
-    $nama = null;
-    $nik = null;
-    $bpjs = null;
-    $hp = null;
-    $email = null;
-    $question = null;
     header("Location: ask_pg.php");
 }
 if ($url == "http://localhost:8000/pages/answer.php") {
@@ -48,32 +43,38 @@ if ($url == "http://localhost:8000/pages/answer.php") {
         }
         header("Location: answer.php");
     }
-    header("Location: answer.php");
 }
 if ($url == "http://localhost:8000/pages/article_input.php") {
     if (isset($_POST['id'])) {
         $id = $_POST['id'];
         $ttl = $_POST['judul'];
-        $desc = $_POST['des'];
+        $desck = $_POST['des'];
         $tm_s = $_POST['tm_s'];
         $tm_e = $_POST['tm_e'];
         $yt = $_POST['yt'];
         $radio = $_POST['tumb'];
-        $tmb;
-        $str = "def_article_pict\.jpg";
-        print_r($_FILES["pict"]["name"] . "<br>");
+        $tipe = $_POST['tipe'];
+        print_r(var_dump($_FILES['pict']));
 
-        if ($_FILES["pict"]["name"] == null && $yt == null || $_FILES["pict"]["name"] == "" && $yt == "" || empty($_FILES["pict"]["name"]) && empty($yt)) {
-            $tmb = $str;
+        //$_FILES["pict"]["name"] == null && $yt == null || $_FILES["pict"]["name"] == "" && $yt == "" || e
+        if (
+            $_FILES["pict"]["error"] == 4 && $radio == "pict" || $_FILES["pict"]["error"] == 4 && $radio == "yt"  ||
+            $yt == "" && $radio == "pict" || $yt == null && $radio == "yt"
+        ) {
+            $tumb = "def_article_pict.jpg";
+            echo $tumb;
+            echo "empty <br>";
         }
-        if ($radio == "yt") {
+        if ($radio == "yt" && $yt != "" || $radio == "yt" && $yt != null || $radio == "yt" && !empty($yt)) {
             $tmb = addslashes($yt);
+            $tumb = $tmb;
         }
-        if ($radio == "pict") {
+        if ($radio == "pict" && $_FILES["pict"]["error"] != 4) {
             $tmb = $_FILES["pict"]["name"];
+            $tumb = $tmb;
         }
 
-        if ($radio == "pict" && $_FILES["pict"]["name"] != null || $radio == "pict" && $_FILES["pict"]["name"] != "" || $radio == "pict" && !empty($_FILES["pict"]["name"])) {
+        if ($radio == "pict" && $_FILES["pict"]["error"] != 4) {
             $target_dir = "../file/img/img_artc/";
             $target_file = $target_dir . basename($_FILES["pict"]["name"]);
             $uploadOk = 1;
@@ -106,24 +107,10 @@ if ($url == "http://localhost:8000/pages/article_input.php") {
                 $uploadOk = 0;
             }
         }
-        // print_r($radio.$tmb);
+        echo $tumb . $id . $ttl . $desck . $tm_s . $tm_e . $radio . $tipe . $usr_id;
         include('../php_func/insert_cht.php');
+        art_up($ttl, $desck, $tumb, $tm_s, $tm_e, $usr_id, $id, $tipe);
 
-        $qryx = "UPDATE article SET title = '$ttl', des = '$desc', tumbnail_pict = '$tmb', time_start = '$tm_s',
-            time_end = '$tm_e', id_editor = '$usr_id', update_at = CURRENT_TIMESTAMP()
-            WHERE id = '$id'";
-
-        try {
-            include('../db/connect.php');
-            // $connect->query($qryx);
-            $_SESSION['art_up'] = "Update Succes";
-            echo "scs";
-        } catch (Exception $e) {
-            echo "Error At: " . $e;
-            $_SESSION['art_up'] = "Update Failed: " + $e;
-            echo "fail";
-        }
-        echo $id . $ttl . $desc . $tm_e . $tm_s . $tmb . $radio . $usr_id;
-        // header("Location: article_input.php");
+        header("Location: article_input.php");
     }
 }

@@ -18,8 +18,9 @@ $_SESSION['url'] = "http://localhost:8000/pages/answer.php";
 
 include('../db/connect.php');
 try {
-    $qry = "CALL chat_call()";
+    $qry = "CALL call_chat()";
     $ftc = $connect->query($qry);
+    // print_r($ftc);
     $result = $ftc->fetch_all(MYSQLI_ASSOC);
 } catch (Exception $e) {
     echo "Error at :" . $e;
@@ -76,7 +77,7 @@ try {
                                 <div class="answer" <?= $answer_box; ?> style="text-align: center;">
                                     <img src="../file/img/qustion/cs.png" style="max-width: 70px;max-height: 70px;border-radius: 50%;" alt="">
                                     <p style="font-size: 20px;color: white;">
-                                        <?= $res['nama']; ?>
+                                        <?= $res['username']; ?>
                                     </p>
                                     <p style="font-size: 15px;color: grey;margin-top: 5px;">
                                         <?= $res['answer_at']; ?>
