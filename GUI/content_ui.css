@@ -2,7 +2,6 @@ body {
   background-color: #3d3d3d;
 }
 
-
 @media (max-width: 320px) {
   .yt-vd {
     width: 100%;
@@ -57,7 +56,7 @@ body {
 /* contant maps */
 .map-bd:hover {
   background-color: transparent;
-  border: 8px solid #019fb6;
+  border: 8px solid #47c26c;
   border-radius: 6px;
   transition: border 200ms ease-out;
 }
@@ -90,7 +89,12 @@ body {
   }
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: white;
 }
 

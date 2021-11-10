@@ -11,29 +11,21 @@ $previous = $halaman - 1;
 $next = $halaman + 1;
 
 $qry2 = "SELECT * FROM article WHERE article_type = 2";
-$data = $connect->query($qry);
+$data = $connect->query($qry2);
 $jumlah_data = mysqli_num_rows($data);
 $total_halaman = ceil($jumlah_data / $batas);
 
 $data_pegawai = $connect->query("SELECT * FROM article WHERE article_type = 2 LIMIT $halaman_awal, $batas");
 $nomor = $halaman_awal + 1;
 ?>
-<table class="table table-light">
-    <thead class="thead-light">
-        <tr>
-            <th>#</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($data_pegawai as $dp) : ?>
-            <tr>
-                <td><?= $dp['title']; ?></td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
-<?php
-for ($x = 1; $x <= $total_halaman; $x++) {
-?>
-    <li class="page-item"><a class="page-link" href="?halaman=<?php echo $x ?>"><?php echo $x; ?></a></li>
-<?php } ?>
+
+<div class="form-check">
+    <form method="get" action="">
+        <div class="form-group">
+            <label for=""></label>
+            <input type="text" class="form-control" name="xx" id="" aria-describedby="helpId" placeholder="">
+            <small id="helpId" class="form-text text-muted">Help text</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

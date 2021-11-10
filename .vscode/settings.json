@@ -1,3 +1,31 @@
 {
-    "php-cs-fixer.autoFixByBracket": false
+  "php-cs-fixer.autoFixByBracket": false,
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "main_con",
+      "database": "first_puskesmas",
+      "username": "usr",
+      "password": "Secureddatabase"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "connect_root",
+      "database": "first_puskesmas",
+      "username": "root",
+      "password": "Jancok-45"
+    }
+  ]
 }

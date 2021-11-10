@@ -23,6 +23,8 @@ try {
     echo "Error at: " + $e;
 }
 
+
+// print_r($rst);
 ?>
 
 <style>
