@@ -99,7 +99,7 @@ if (empty($_SESSION['user'])) {
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Jawaban:</label>
                                     <!-- <input type="text" class="form-control" name="answ" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
-                                    <textarea class="form-control" id="answ" name="answ" cols="30" rows="10" style="width: 50%; height: 38px;" id="exampleInputEmail1" aria-describedby="emailHelp"></textarea>
+                                    <textarea class="form-control" required id="answ" name="answ" cols="30" rows="10" style="width: 50%; height: 38px;" id="exampleInputEmail1" aria-describedby="emailHelp"></textarea>
                                     <input type="text" name="id" id="id" hidden value="<?= $res['id']; ?>">
                                 </div>
                                 <button type="submit" class="btn btn-outline mt-2 mb-1 sbm" style="max-width: 500px;">Submit</button>

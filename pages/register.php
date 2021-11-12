@@ -21,8 +21,8 @@ if (empty($_SESSION['user'])) {
 ?>
 <div class="container" <?= $cont; ?>>
     <?php
-    print_r($_SESSION);
-    if (isset($_SESSION['reg']) == "Succes Register") {
+    // print_r($_SESSION);
+    if (!empty($_SESSION['reg'])) {
         echo
         '<center>
         <div class="alert alert-danger alert-dismissible fade show mt-2 mb-2" role="alert" style="max-width: 50%;">
@@ -32,7 +32,7 @@ if (empty($_SESSION['user'])) {
         </div>
         </center>';
     }
-    // if (isset($_SESSION['reg']) == "Failed Register") {
+    // if (isset($_SESSION['reg']) == "Exist") {
     //     echo
     //     '<center>
     //     <div class="alert alert-danger alert-dismissible fade show mt-2 mb-2" role="alert" style="max-width: 50%;">
@@ -42,16 +42,6 @@ if (empty($_SESSION['user'])) {
     //     </div>
     //     </center>';
     // }
-    if (isset($_SESSION['reg']) == "Username Already Exist") {
-        echo
-        '<center>
-        <div class="alert alert-danger alert-dismissible fade show mt-2 mb-2" role="alert" style="max-width: 50%;">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-        ' . $_SESSION['reg'] . '
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        </center>';
-    }
     unset($_SESSION['reg']);
     ?>
     <div class="row">
