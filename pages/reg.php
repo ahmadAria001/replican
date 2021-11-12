@@ -17,8 +17,8 @@ if ($res == 1) {
     $_SESSION['reg'] = "Username Already Exist";
     header("Location: register.php");
 } else {
-    $qry2 = "INSERT INTO users (username,password,user_type)
-        VALUES ('$usr', '$pw', '$tipe')";
+    $qry2 = "INSERT INTO users (username,password,user_type,register_id)
+        VALUES ('$usr', '$pw', '$tipe','$usr_id')";
     $connect->query($qry2);
     $_SESSION['reg'] = "Succes Register";
     $_SESSION['reg'] = "Failed Register";

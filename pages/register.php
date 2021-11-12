@@ -13,8 +13,13 @@ if (session_status() == 0) {
 }
 
 include('../db/connect.php');
+if (empty($_SESSION['user'])) {
+    $cont = "hidden";
+} else {
+    $cont = "";
+}
 ?>
-<div class="container">
+<div class="container" <?= $cont; ?>>
     <?php
     print_r($_SESSION);
     if (isset($_SESSION['reg']) == "Succes Register") {
@@ -27,16 +32,16 @@ include('../db/connect.php');
         </div>
         </center>';
     }
-    if (isset($_SESSION['reg']) == "Failed Register") {
-        echo
-        '<center>
-        <div class="alert alert-danger alert-dismissible fade show mt-2 mb-2" role="alert" style="max-width: 50%;">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-        ' . $_SESSION['reg'] . '
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        </center>';
-    }
+    // if (isset($_SESSION['reg']) == "Failed Register") {
+    //     echo
+    //     '<center>
+    //     <div class="alert alert-danger alert-dismissible fade show mt-2 mb-2" role="alert" style="max-width: 50%;">
+    //     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+    //     ' . $_SESSION['reg'] . '
+    //         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    //     </div>
+    //     </center>';
+    // }
     if (isset($_SESSION['reg']) == "Username Already Exist") {
         echo
         '<center>

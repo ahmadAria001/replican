@@ -26,11 +26,16 @@ try {
 } catch (Exception $e) {
     echo "Error at: " . $e;
 }
+if (empty($_SESSION['user'])) {
+    $cont = "hidden";
+} else {
+    $cont = "";
+}
 ?>
 <script src="../js/artc.js"></script>
 <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
 
-<div class="container">
+<div class="container" <?= $cont; ?>>
     <center>
         <?php
         if (strpos(isset($_SESSION['art_up']), "Update Succes")) {

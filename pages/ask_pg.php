@@ -116,7 +116,7 @@ try {
                         <div class="answer" <?= $answer_box; ?> align="right">
                             <img src="../file/img/qustion/cs.png" align="right" style="justify-self: right;max-width: 70px;max-height: 70px;border-radius: 50%;" alt="">
                             <p style="font-size: 20px;color: white;">
-                                <?= $res['nama']; ?>
+                                <?= $res['username']; ?>
                             </p>
                             <p style="font-size: 15px;color: grey;margin-top: 5px;">
                                 <?= $res['answer_at']; ?>

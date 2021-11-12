@@ -25,10 +25,14 @@ try {
 } catch (Exception $e) {
     echo "Error at :" . $e;
 }
-
+if (empty($_SESSION['user'])) {
+    $cont = "hidden";
+} else {
+    $cont = "";
+}
 ?>
 
-<div class="container-fluid">
+<div class="container-fluid" <?= $cont; ?>>
     <div class="row">
         <div class="col">
             <div class="cht-border p-3  mt-2 " style="overflow-y: scroll;">

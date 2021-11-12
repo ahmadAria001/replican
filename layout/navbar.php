@@ -95,21 +95,51 @@ $logut = null;
                             session_start();
                         }
 
-                        if (isset($_SESSION['user'])) {
+                        if (!empty($_SESSION['user'])) {
                             echo
                             $_SESSION['user'];
                             $login = "hidden";
                             $logout = "";
                             $tanya = "hidden";
                             $jwbq = "";
-                            $artc = "";
+                            if ($_SESSION['job'] == 1) {
+                                $artc = "";
+                                $job = "";
+                            }
+                            if ($_SESSION['job'] == 2) {
+                                $artc = "hidden";
+                                $job = "hidden";
+                            }
                         } else {
                             $login = "";
                             $logout = "hidden";
                             $tanya = "";
                             $jwbq = "hidden";
                             $artc = "hidden";
+                            $job = "hidden";
                         }
+                        // if (isset($_SESSION['user'])) {
+                        //     $_SESSION['user'];
+                        //     $login = "hidden";
+                        //     $logout = "";
+                        //     $tanya = "hidden";
+                        //     $jwbq = "";
+
+                        // }
+                        // if (empty($_SESSION['user'])) {
+                        //     $login = "";
+                        //     $logout = "hidden";
+                        //     $tanya = "";
+                        //     $jwbq = "hidden";
+                        //     $artc = "hidden";
+                        //     $job = "hidden";
+                        // }
+                        // if () {
+                        //     $job = "";
+                        // }
+                        // if (isset($_SESSION['job']) == 2 || isset($_SESSION['job']) == 3) {
+                        //     $job = "hidden";
+                        // }
                         ?>
                     </h5>
                 </li>
@@ -133,7 +163,7 @@ $logut = null;
                         <ul class="dd-content">
                             <li class="dd-li"><a class="p-3" id="a-dd" href="../pages/cs.php">Unit Pelayanan</a></li>
                             <li <?= $artc; ?> class="dd-li"><a class="p-3" id="a-dd" href="../pages/article_input.php">Article Input</a></li>
-                            <li <?= $artc; ?> class="dd-li"><a class="p-3" id="a-dd" href="../pages/register.php">Register User</a></li>
+                            <li <?= $job; ?> class="dd-li"><a class="p-3" id="a-dd" href="../pages/register.php">Register User</a></li>
                         </ul>
                     </div>
                 </li>
