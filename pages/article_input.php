@@ -177,6 +177,7 @@ if (empty($_SESSION['user'])) {
                                     <h5 style="color: black;">
                                         Tumbnail Type
                                     </h5>
+                                    <br>
                                     <div class="form-check form-switch">
                                         <label class="form-check-label">
                                             <input type="radio" class="form-check-input" name="rad" id="rad" onchange="radio()" role="switch" value="yt">

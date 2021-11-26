@@ -41,13 +41,13 @@ try {
 
     .xct {
         /* border: solid var(--bd) rgba(#000, .03); */
-        background: rgb(2, 0, 36);
-        background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(1, 40, 167, 1) 58%, rgba(179, 186, 187, 1) 100%);
+        background: rgb(61, 61, 61);
+        background: linear-gradient(0deg, rgba(61, 61, 61, 1) 0%, rgba(71, 194, 108, 1) 35%, rgba(71, 194, 108, 1) 100%);
         max-height: fit-content;
     }
 </style>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col xct">
             <div class="wlcm-txt p-3" align="center">

@@ -37,14 +37,14 @@
 </head>
 
 <body>
-    <div class="container-fluid" style="padding: 0; margin-bottom: 50px;">
-        <?php
-        include('navbar.php');
-        if (isset($TPL->bodycontent)) {
-            include $TPL->bodycontent;
-        }
-        ?>
-    </div>
+    <!-- <div class="container-fluid" style="padding: 0; margin-bottom: 50px;"> -->
+    <?php
+    include('navbar.php');
+    if (isset($TPL->bodycontent)) {
+        include $TPL->bodycontent;
+    }
+    ?>
+    <!-- </div> -->
     <footer class="mt-5" style="max-width: 100%;background-color: #47c26c;">
         <center>
             <div class="row" style="max-width: 90%;">
